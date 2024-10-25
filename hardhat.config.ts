@@ -65,7 +65,7 @@ const config: HardhatUserConfig = {
         },
         'amoy-testnet': {
             eid: EndpointId.AMOY_V2_TESTNET,
-            url: process.env.RPC_URL_AMOY || 'https://gon-amoy-bor-rpc.publicnode.com',
+            url: process.env.AMOY_RPC_URL || 'https://gon-amoy-bor-rpc.publicnode.com',
             chainId: 80002,
             accounts,
         },

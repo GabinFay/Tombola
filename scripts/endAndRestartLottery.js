@@ -10,7 +10,7 @@ async function main() {
   const tombola = await Tombola.attach(process.env.AMOY_CONTRACT_ADDRESS);
 
   console.log("Ending current lottery...");
-  const endTx = await tombola.connect(owner).endLottery();
+  const endTx = await tombola.connect(owner).endTombola();
   await endTx.wait();
   console.log("Tombola ended. Waiting for VRF callback...");
 

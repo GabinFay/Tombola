@@ -27,7 +27,7 @@ async function main() {
   }
 
   // Set the VRF handler
-  const tx = await contract.setVRFHandler("0xcd81bB01D59BB0Cb9118C795a2E8842046fE8B8F", {
+  const tx = await contract.setVRFHandler(process.env.VRF_HANDLER_AMOY, {
     gasLimit: 300000 // Adjust this value as needed
   });
 
