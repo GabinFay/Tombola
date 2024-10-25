@@ -1,0 +1,194 @@
+:root {
+  --secondary-glow: conic-gradient(
+    from 10deg at 50% 50%,
+    #8b7500 0deg,
+    #8b7b00 55deg,
+    #8b8b00 120deg,
+    #8b8970 160deg,
+    transparent 360deg
+  );
+
+  --third-glow: conic-gradient(
+    from 90deg at 50% 50%,
+    #8b7500 0deg,
+    #8b7b00 160deg,
+    #8b8b00 120deg,
+    #8b8970 55deg,
+    transparent 360deg
+  );
+
+  --top-right-glow: radial-gradient(
+    circle at center,
+    #8b7500 0%,
+    #8b7b00 25%,
+    #8b8b00 50%,
+    #8b8970 75%,
+    transparent 100%
+  );
+}
+
+.animated-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  background-color: #000000;
+  pointer-events: none;
+}
+
+.animated-background::before,
+.animated-background::after,
+.animated-background .top-right-shape-1,
+.animated-background .top-right-shape-2,
+.animated-background .top-right-shape-3 {
+  content: '';
+  position: absolute;
+  opacity: 0.5;
+}
+
+.animated-background::before {
+  background: var(--third-glow);
+  border-radius: 50%;
+  width: 60vw;
+  height: 60vw;
+  margin-left: -200px;
+  filter: blur(120px);
+  top: calc(70vh - 30vw);
+  left: 20vw;
+  animation: animateBefore 14s ease-in-out infinite;
+}
+
+.animated-background::after {
+  background: var(--secondary-glow);
+  border-radius: 50%;
+  width: 600px;
+  height: 800px;
+  filter: blur(120px);
+  top: calc(80vh - 400px);
+  left: calc(30vw - 300px);
+  animation: animateAfter 14s ease-in-out infinite;
+}
+
+.animated-background .top-right-shape-1 {
+  background: var(--top-right-glow);
+  width: 200px;
+  height: 200px;
+  top: 20px;
+  right: 20px;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  filter: blur(40px);
+  animation: animateTopRight1 10s ease-in-out infinite;
+}
+
+.animated-background .top-right-shape-2 {
+  background: var(--secondary-glow);
+  width: 150px;
+  height: 150px;
+  top: 100px;
+  right: 100px;
+  border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
+  filter: blur(30px);
+  animation: animateTopRight2 12s ease-in-out infinite;
+}
+
+.animated-background .top-right-shape-3 {
+  background: var(--third-glow);
+  width: 100px;
+  height: 100px;
+  top: 50px;
+  right: 200px;
+  border-radius: 41% 59% 40% 60% / 65% 37% 63% 35%;
+  filter: blur(20px);
+  animation: animateTopRight3 8s ease-in-out infinite;
+}
+
+.top-right-shape-1,
+.top-right-shape-2,
+.top-right-shape-3 {
+  position: absolute;
+  z-index: 1;
+}
+
+.top-right-shape-1 {
+  top: 20px;
+  right: 20px;
+}
+
+.top-right-shape-2 {
+  top: 100px;
+  right: 100px;
+}
+
+.top-right-shape-3 {
+  top: 50px;
+  right: 200px;
+}
+
+@keyframes animateBefore {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(100px, 100px) scale(0.8);
+  }
+  50% {
+    transform: translate(0, 200px) scale(1.2);
+  }
+  75% {
+    transform: translate(-100px, 100px) scale(0.9);
+  }
+}
+
+@keyframes animateAfter {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(-150px, 50px) scale(1.2);
+  }
+  50% {
+    transform: translate(-100px, -100px) scale(0.8);
+  }
+  75% {
+    transform: translate(100px, -50px) scale(1.1);
+  }
+}
+
+@keyframes animateTopRight1 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(-30px, 30px) rotate(120deg);
+  }
+  66% {
+    transform: translate(30px, -30px) rotate(240deg);
+  }
+}
+
+@keyframes animateTopRight2 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(20px, -20px) rotate(-120deg);
+  }
+  66% {
+    transform: translate(-20px, 20px) rotate(-240deg);
+  }
+}
+
+@keyframes animateTopRight3 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(-15px, -15px) rotate(90deg);
+  }
+  66% {
+    transform: translate(15px, 15px) rotate(180deg);
+  }
+}
